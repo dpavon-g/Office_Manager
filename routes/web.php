@@ -16,6 +16,8 @@ use App\Http\Controllers\OficinasController;
 
 Route::get('/', [OficinasController::class, 'index'])->name('home');
 
+Route::get('/oficinas/{idOficina}', [OficinasController::class, 'show'])->name('oficinas');
+
 Route::get('/newOffice', function() {
     return view('oficinas.newOffice');
 })->name('newOffice');
