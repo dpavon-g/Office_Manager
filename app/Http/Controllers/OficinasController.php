@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Oficinas;
 
 class OficinasController extends Controller
 {
@@ -11,15 +12,24 @@ class OficinasController extends Controller
      */
     public function index()
     {
-        //
+        $Oficinas = Oficinas::all();
+        return view('index', compact('Oficinas'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'ubicacion' => 'required|string|max:255',
+        ]);
+
+        Oficinas::create($request->all());
+
+        $Oficinas = Oficinas::all();
+        return view('index', compact('Oficinas'));
     }
 
     /**

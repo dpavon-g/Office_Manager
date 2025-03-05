@@ -14,10 +14,7 @@ use App\Http\Controllers\OficinasController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-
+Route::get('/', [OficinasController::class, 'index'])->name('home');
 
 Route::get('/newOffice', function() {
     return view('oficinas.newOffice');

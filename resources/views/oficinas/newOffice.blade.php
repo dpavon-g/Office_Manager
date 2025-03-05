@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear oficina</title>
      <!-- CSS Bootstrap -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- CSS Personal -->
@@ -26,7 +26,7 @@
                     <label for="name" class="form-label mb-0">Nombre</label>
                 </div>
                 <div class="col-6 d-flex align-items-center justify-content-center">
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <input type="text" class="form-control" id="name" name="nombre" required>
                 </div>
             </div>
             <div class="row mt-2">
@@ -34,7 +34,7 @@
                     <label for="name" class="form-label mb-0">Dirección</label>
                 </div>
                 <div class="col-6 d-flex align-items-center justify-content-center">
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <input type="text" class="form-control" id="name" name="ubicacion" required>
                 </div>
             </div>
             <div class="row mt-2">
