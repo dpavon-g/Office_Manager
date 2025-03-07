@@ -21,3 +21,7 @@ Route::get('/oficinas/{idOficina}', [OficinasController::class, 'show'])->name('
 Route::get('/newOffice', function() {
     return view('oficinas.newOffice');
 })->name('newOffice');
+
+Route::get('/newEmpleado/{idOficina}', function($idOficina) {
+    return view('empleados.newEmpleado', ['idOficina' => $idOficina]);
+})->name('newEmpleado');

@@ -22,7 +22,7 @@
                 @if($Oficinas->isNotEmpty())
                     <ul class="list-group d-flex align-items-center justify-content-center">
                         @foreach($Oficinas as $oficina)
-                            <li class="list-group-item d-flex align-items-center justify-content-center mb-2">
+                            <li class="list-group-item mb-3">
                                 <a href="{{ route('oficinas', ['idOficina' => $oficina->id])  }}">{{ $oficina->nombre }}</a>
                             </li>
                         @endforeach

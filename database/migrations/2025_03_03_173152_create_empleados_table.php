@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre', 100);
             $table->string('primer_apellido', 100);
             $table->string('segundo_apellido', 100);
-            $table->enum('rol', ['administrador', 'empleado', 'gerente']); // Puedes modificar los roles
+            $table->string('rol', 100); // Puedes modificar los roles
             $table->date('fecha_de_nacimiento');
             $table->string('DNI', 9)->unique();
             $table->string('email', 255)->unique();

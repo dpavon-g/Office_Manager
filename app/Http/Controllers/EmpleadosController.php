@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Oficinas;
+use App\Models\Empleados;
+
 
 class EmpleadosController extends Controller
 {
@@ -17,9 +20,22 @@ class EmpleadosController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'primer_apellido' => 'required|string|max:255',
+            'segundo_apellido' => 'nullable|string|max:255',
+            'rol' => 'nullable|string|max:255',
+            'fecha_de_nacimiento' => 'nullable|date',
+            'DNI' => 'required|string|size:9|regex:/^[0-9]{8}[A-Z]$/',
+            'email' => 'required|string|email|max:255',
+            'oficina_id' => 'required|integer|exists:oficinas,id'
+        ]);
+
+        Empleados::create($request->all());
+        $idOficina = $request->input('oficina_id');
+        return redirect()->route('oficinas', ['idOficina' => $idOficina]);
     }
 
     /**

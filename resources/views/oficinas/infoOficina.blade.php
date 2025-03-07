@@ -16,7 +16,7 @@
     <main class="d-flex align-items-center justify-content-center mt-1">
         <div class="row">
             <div class="col-12 d-flex align-items-center justify-content-center mb-3">
-                <a class="btn btn-primary" href="{{ route('newOffice') }}">Añadir empleado</a>
+                <a class="btn btn-primary" href="{{ route('newEmpleado', ['idOficina' => $oficina->id]) }}">Añadir empleado</a>
             </div>
             <div class="col-12">
                 <p><b>Nombre:</b> {{ $oficina->nombre }}</p>
@@ -26,9 +26,13 @@
                 <h3>Empleados:</h3>
 
                 @if($oficina->empleados->isNotEmpty())
-                    <ul>
+                    <ul class="list-group d-flex align-items-center justify-content-center">
                         @foreach($oficina->empleados as $empleado)
-                            <li>{{ $empleado->nombre }} {{ $empleado->primer_apellido }} - {{ $empleado->rol }}</li>
+                            <li class="list-group-item mb-3">
+                                <a href="#">
+                                    {{ $empleado->nombre }} {{ $empleado->primer_apellido }} - {{ $empleado->rol }}
+                                </a>
+                            </li>
                         @endforeach
                     </ul>
                 @else
