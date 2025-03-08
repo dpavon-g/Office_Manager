@@ -15,8 +15,15 @@
     </header>
     <main class="d-flex align-items-center justify-content-center mt-1">
         <div class="row">
-            <div class="col-12 d-flex align-items-center justify-content-center mb-3">
+            <div class="col-12 d-flex align-items-center justify-content-center mb-3 gap-5">
                 <a class="btn btn-primary" href="{{ route('newEmpleado', ['idOficina' => $oficina->id]) }}">Añadir empleado</a>
+
+
+                <form action="{{ route('delOficina', ['idOficina' => $oficina->id]) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Eliminar oficina</button>
+                </form>
             </div>
             <div class="col-12">
                 <p><b>Nombre:</b> {{ $oficina->nombre }}</p>

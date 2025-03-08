@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/createOffice', [OficinasController::class, 'create'])->name('createOffice');
 
 Route::post('/createUser', [EmpleadosController::class, 'create'])->name('createUser');
+
+Route::delete('/delOficina/{idOficina}', [OficinasController::class, 'destroy'])->name('delOficina');

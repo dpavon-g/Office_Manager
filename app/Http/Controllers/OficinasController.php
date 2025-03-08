@@ -70,6 +70,8 @@ class OficinasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Oficinas::destroy($id);
+        $Oficinas = Oficinas::all();
+        return view('index', compact('Oficinas'));
     }
 }
