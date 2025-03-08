@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-    <header class="d-flex align-items-center justify-content-center">
+    <header class="d-flex align-items-center justify-content-center mt-5">
         <a class="text-decoration-none text-secondary" href="{{ route('home') }}"><h1>Pavon office manager</h1></a>    
     </header>
     <main class="d-flex align-items-center justify-content-center mt-1">

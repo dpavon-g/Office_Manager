@@ -23,4 +23,6 @@ Route::post('/createOffice', [OficinasController::class, 'create'])->name('creat
 
 Route::post('/createUser', [EmpleadosController::class, 'create'])->name('createUser');
 
+Route::post('/editUser/{userId}', [EmpleadosController::class, 'edit'])->name('editUser');
+
 Route::delete('/delOficina/{idOficina}', [OficinasController::class, 'destroy'])->name('delOficina');

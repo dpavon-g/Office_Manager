@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 100);
             $table->string('primer_apellido', 100);
-            $table->string('segundo_apellido', 100);
+            $table->string('segundo_apellido', 100)->nullable();
             $table->string('rol', 100); // Puedes modificar los roles
-            $table->date('fecha_de_nacimiento');
+            $table->date('fecha_de_nacimiento')->nullable();
             $table->string('DNI', 9)->unique();
             $table->string('email', 255)->unique();
             $table->unsignedBigInteger('oficina_id');

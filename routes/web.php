@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OficinasController;
+use App\Http\Controllers\EmpleadosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('/newOffice', function() {
 Route::get('/newEmpleado/{idOficina}', function($idOficina) {
     return view('empleados.newEmpleado', ['idOficina' => $idOficina]);
 })->name('newEmpleado');
+
+Route::get('/getEmpleado/{idEmpleado}', [EmpleadosController::class, 'show'])->name('getEmpleado');

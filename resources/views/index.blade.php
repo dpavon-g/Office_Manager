@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-    <header class="d-flex align-items-center justify-content-center">
+    <header class="d-flex align-items-center justify-content-center mt-5">
         <a class="text-decoration-none text-secondary" href="{{ route('home') }}"><h1>Gestor oficinas Pavón</h1></a>    
     </header>
     <main class="d-flex align-items-center justify-content-center mt-1">
@@ -22,7 +22,7 @@
                 @if($Oficinas->isNotEmpty())
                     <ul class="list-group d-flex align-items-center justify-content-center">
                         @foreach($Oficinas as $oficina)
-                            <li class="list-group-item mb-3">
+                            <li class="list-group-item border mb-3">
                                 <a href="{{ route('oficinas', ['idOficina' => $oficina->id])  }}">{{ $oficina->nombre }}</a>
                             </li>
                         @endforeach

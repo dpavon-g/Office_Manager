@@ -14,7 +14,7 @@
         <a class="text-decoration-none text-secondary" href="{{ route('home') }}"><h1>Pavon office manager</h1></a>    
     </header>
     <main class="d-flex align-items-center justify-content-center mt-1">
-        <form class="text-secondary" action="{{ route('createUser') }}" method="POST">
+        <form class="text-secondary" action="{{ route('editUser', ['userId' => $empleado->id]) }}" method="POST">
             @csrf
             @method('POST')
             
@@ -27,7 +27,7 @@
                     <label for="nombre" class="form-label mb-0">Nombre *</label>
                 </div>
                 <div class="col-6">
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ $empleado->nombre }}" required>
                 </div>
             </div>
             
@@ -36,7 +36,7 @@
                     <label for="primer_apellido" class="form-label mb-0">Primer Apellido *</label>
                 </div>
                 <div class="col-6">
-                    <input type="text" class="form-control" id="primer_apellido" name="primer_apellido" required>
+                    <input type="text" class="form-control" id="primer_apellido" name="primer_apellido" value="{{ $empleado->primer_apellido }}" required>
                 </div>
             </div>
             
@@ -45,7 +45,7 @@
                     <label for="segundo_apellido" class="form-label mb-0">Segundo Apellido</label>
                 </div>
                 <div class="col-6">
-                    <input type="text" class="form-control" id="segundo_apellido" name="segundo_apellido">
+                    <input type="text" class="form-control" id="segundo_apellido" name="segundo_apellido" value="{{ $empleado->primer_apellido }}">
                 </div>
             </div>
             
@@ -54,7 +54,7 @@
                     <label for="rol" class="form-label mb-0">Rol</label>
                 </div>
                 <div class="col-6">
-                    <input type="text" class="form-control" id="rol" name="rol">
+                    <input type="text" class="form-control" id="rol" name="rol" value="{{ $empleado->rol }}">
                 </div>
             </div>
             
@@ -63,7 +63,7 @@
                     <label for="fecha_de_nacimiento" class="form-label mb-0">Fecha de Nacimiento</label>
                 </div>
                 <div class="col-6">
-                    <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_de_nacimiento">
+                    <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_de_nacimiento" value="{{ $empleado->fecha_nacimiento }}">
                 </div>
             </div>
             
@@ -72,7 +72,7 @@
                     <label for="DNI" class="form-label mb-0">DNI *</label>
                 </div>
                 <div class="col-6">
-                    <input type="text" class="form-control" id="DNI" name="DNI" required pattern="[0-9]{8}[A-Za-z]" title="Debe tener 8 números seguidos de una letra">
+                    <input type="text" class="form-control" id="DNI" name="DNI" value="{{ $empleado->DNI }}" required pattern="[0-9]{8}[A-Za-z]" title="Debe tener 8 números seguidos de una letra">
                 </div>
             </div>
             
@@ -81,16 +81,16 @@
                     <label for="email" class="form-label mb-0">Email *</label>
                 </div>
                 <div class="col-6">
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ $empleado->email }}" required>
                 </div>
             </div>
             
             <div class="row mt-3">
                 <div class="col-12 d-flex align-items-center justify-content-center">
-                    <input class="btn btn-primary" type="submit" value="Crear Usuario">
+                    <input class="btn btn-primary" type="submit" value="Editar Usuario">
                 </div>
             </div>
-            <input type="hidden" name="oficina_id" value="{{$idOficina}}">
+            <input type="hidden" name="oficina_id" value="{{$empleado->id}}">
         </form>
     </main>
     <!-- JS Bootstrap -->

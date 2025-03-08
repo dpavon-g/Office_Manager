@@ -29,7 +29,7 @@ class OficinasController extends Controller
         Oficinas::create($request->all());
 
         $Oficinas = Oficinas::all();
-        return view('index', compact('Oficinas'));
+        return redirect()->route('home', compact('Oficinas'));
     }
 
     /**

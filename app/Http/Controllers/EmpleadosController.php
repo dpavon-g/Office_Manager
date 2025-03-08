@@ -49,17 +49,34 @@ class EmpleadosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $idEmpleado)
     {
-        //
+        $empleado = Empleados::findOrFail($idEmpleado); 
+        return view('empleados.infoEmpleado', compact('empleado'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'primer_apellido' => 'required|string|max:255',
+            'segundo_apellido' => 'nullable|string|max:255',
+            'rol' => 'nullable|string|max:255',
+            'fecha_de_nacimiento' => 'nullable|date',
+            'DNI' => 'required|string|size:9|regex:/^[0-9]{8}[A-Z]$/',
+            'email' => 'required|string|email|max:255',
+            'oficina_id' => 'required|integer|exists:oficinas,id'
+        ]);
+
+        $empleado = Empleados::findOrFail($id);
+        $empleado->update($request->all());
+
+        $Oficinas = Oficinas::all();
+        return redirect()->route('home', compact('Oficinas'));
     }
 
     /**
