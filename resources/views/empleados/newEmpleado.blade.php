@@ -87,9 +87,9 @@
                         console.log({{ $errors }})
                     </script>
 
-                    @if($errors->has('DNI'))
-                        <div class="text-danger">{{ $errors->first('DNI') }}</div>
-                    @endif
+                @error('DNI')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
                 </div>
             </div>
             

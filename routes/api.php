@@ -18,11 +18,3 @@ use App\Http\Controllers\EmpleadosController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::post('/createOffice', [OficinasController::class, 'create'])->name('createOffice');
-
-Route::post('/createUser', [EmpleadosController::class, 'create'])->name('createUser');
-
-Route::post('/editUser/{userId}', [EmpleadosController::class, 'edit'])->name('editUser');
-
-Route::delete('/delOficina/{idOficina}', [OficinasController::class, 'destroy'])->name('delOficina');

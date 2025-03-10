@@ -28,3 +28,11 @@ Route::get('/newEmpleado/{idOficina}', function($idOficina) {
 })->name('newEmpleado');
 
 Route::get('/getEmpleado/{idEmpleado}', [EmpleadosController::class, 'show'])->name('getEmpleado');
+
+Route::post('/createOffice', [OficinasController::class, 'create'])->name('createOffice');
+
+Route::post('/createUser', [EmpleadosController::class, 'create'])->name('createUser');
+
+Route::post('/editUser/{userId}', [EmpleadosController::class, 'edit'])->name('editUser');
+
+Route::delete('/delOficina/{idOficina}', [OficinasController::class, 'destroy'])->name('delOficina');
