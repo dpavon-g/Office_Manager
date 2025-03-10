@@ -28,9 +28,19 @@ class EmpleadosController extends Controller
             'segundo_apellido' => 'nullable|string|max:255',
             'rol' => 'nullable|string|max:255',
             'fecha_de_nacimiento' => 'nullable|date',
-            'DNI' => 'required|string|size:9|regex:/^[0-9]{8}[A-Z]$/',
-            'email' => 'required|string|email|max:255',
+            'DNI' => [
+                'required',
+                'string',
+                'max:9',
+                'unique:empleados,DNI',
+                'regex:/^\d{8}[A-Z]$/',
+            ],
+            'email' => 'required|string|email|max:255|unique:empleados,email',
             'oficina_id' => 'required|integer|exists:oficinas,id'
+        ], [
+            'DNI.unique' => 'El DNI ya está registrado.',
+            'email.unique' => 'El email ya está registrado.',
+            'DNI.regex' => 'El DNI debe tener 8 números seguidos de una letra mayúscula.',
         ]);
 
         Empleados::create($request->all());

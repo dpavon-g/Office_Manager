@@ -13,6 +13,15 @@
     <header class="d-flex align-items-center justify-content-center mt-5">
         <a class="text-decoration-none text-secondary" href="{{ route('home') }}"><h1>Pavon office manager</h1></a>    
     </header>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <main class="d-flex align-items-center justify-content-center mt-1">
         <form class="text-secondary" action="{{ route('createUser') }}" method="POST">
             @csrf
@@ -73,6 +82,14 @@
                 </div>
                 <div class="col-6">
                     <input type="text" class="form-control" id="DNI" name="DNI" required pattern="[0-9]{8}[A-Za-z]" title="Debe tener 8 números seguidos de una letra">
+                    
+                    <script>
+                        console.log({{ $errors }})
+                    </script>
+
+                    @if($errors->has('DNI'))
+                        <div class="text-danger">{{ $errors->first('DNI') }}</div>
+                    @endif
                 </div>
             </div>
             
@@ -82,6 +99,9 @@
                 </div>
                 <div class="col-6">
                     <input type="email" class="form-control" id="email" name="email" required>
+                    @if($errors->has('email'))
+                        <div class="text-danger">{{ $errors->first('email') }}</div>
+                    @endif
                 </div>
             </div>
             
