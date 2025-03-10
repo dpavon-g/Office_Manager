@@ -13,15 +13,6 @@
     <header class="d-flex align-items-center justify-content-center mt-5">
         <a class="text-decoration-none text-secondary" href="{{ route('home') }}"><h1>Pavon office manager</h1></a>    
     </header>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <main class="d-flex align-items-center justify-content-center mt-1">
         <form class="text-secondary" action="{{ route('createUser') }}" method="POST">
             @csrf
